@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div class="bg-img" >
+  <div class="content">
+      <header>Registration Form</header>
+      <img class="img-fluid" style="width: 100px;" src="../../assets/reg.png">
+     <br><br>
+     <form  (ngSubmit)="registerFormGroup.valid && onSubmit()" [formGroup]="registerFormGroup">
+          <div class="field">
+            <input type="text"  placeholder="                  Enter Your Name" formControlName="name"/>
+          </div>
+          <span style="color: red;font-size:larger;" *ngIf="name && name.invalid && name.touched">Please enter a valid name</span>
+          <div class="field space">
+            <input type="email"placeholder="                  Enter Your Email" formControlName="email"/>
+        </div>
+        <span style="color: red;font-size:larger;" *ngIf="email && email.invalid && email.touched">Please enter a valid email</span>
+        <div class="field space">
+          <input type="password"placeholder="                  Enter Your Password" formControlName="password"/>
+        </div>
+        <span style="color: red;font-size: larger;" *ngIf="password && password.invalid && password.touched">Password Required of min 6 char</span>
+        <div class="field space">
+          <input type="number"placeholder="                  Enter Your Phone No" formControlName="phoneNo" />
+        </div><span style="color: red;font-size: larger;" *ngIf="phoneNo && phoneNo.invalid && phoneNo.touched">Please enter a valid phone Number</span> <br>
+          <div class="field">
+            <div class="instagram">
+              <input [disabled]="registerFormGroup.invalid" type="submit" value="Register">
+            </div>
+            </div>\
+            <br>
+    
+          <div class="signup">Already Registered?
+              <a href="login">Login Now</a>
+          </div>
+      </form>
+  </div>
+
+</div>

@@ -1,0 +1,46 @@
+
+  .toolcolor{
+    background-color: white;
+      }
+      .example-form-field {
+        width: 100%;
+      }
+      .example-container {
+        height: 100%;
+        border-top: 1px solid gray;
+        background-color: white;
+        background-image:url('https://static.vecteezy.com/system/resources/previews/006/262/479/large_2x/white-and-blue-tone-abstract-background-backdrop-for-presentation-design-for-website-concept-of-beauty-and-health-business-brochure-free-photo.jpg');
+      }
+      .example-sidenav-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2%;
+    
+        
+      }
+      .example-sidenav {
+         user-select: none;
+         border: none;
+         width:10%;
+         background-image:url('https://static.vecteezy.com/system/resources/previews/006/262/479/large_2x/white-and-blue-tone-abstract-background-backdrop-for-presentation-design-for-website-concept-of-beauty-and-health-business-brochure-free-photo.jpg');
+      }
+      .full-width {
+        width: 100%;
+        margin-left:20%;
+        font-size: larger;
+        font-weight: bold;
+        
+      }
+      .menu-button {
+        transition: 300ms ease-in-out;
+        transform: rotate(0deg);
+      }
+      .menu-button.rotated {
+        transform: rotate(180deg);
+      }
+      
+      
+    
+    
+    

@@ -1,0 +1,23 @@
+server:
+  port: 8082
+  error:
+    include-message: always
+
+spring:
+  cloud:
+    compatibility-verifier:
+      enabled: false
+  data:
+    mongodb:
+      uri: ${MONGO_URI:mongodb://localhost:27017/usertaskDb}
+  application:
+    name: user-task-service
+  hibernate:
+    ddl-auto: update
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_SERVER_IP:localhost}:${EUREKA_SERVER_PORT:8761}/eureka
+    fetchRegistry: true
+    registerWithEureka: true

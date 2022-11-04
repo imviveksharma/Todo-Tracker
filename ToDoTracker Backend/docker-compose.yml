@@ -1,0 +1,94 @@
+version: "3.3"
+services:
+
+  mongoservice:
+    image: mongo:3.2-jessie
+    container_name: mongocontainer
+    ports:
+      - 27017:27017
+    network_mode: host
+
+  mysqlservice:
+    image: mysql:5.5
+    ports:
+      - 3306:3306
+    container_name: mysqlcontainer
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: user
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+  userauthenticationservice:
+    image: authenticationimage
+    network_mode: host
+    build: UserAuthentication/
+    restart: always
+    ports:
+      - 8085:8085
+    depends_on:
+      - mysqlservice
+      - eurekaserver
+      - apigateway
+
+  apigateway:
+    image: apiservice
+    build: ApiGateway/
+    restart: always
+    network_mode: host
+    ports:
+      - 9000:9000
+    depends_on:
+      - eurekaserver
+
+  eurekaserver:
+    image: eureka-image
+    build: EurekaServer/
+    network_mode: host
+    ports:
+      - 8761:8761
+
+  todoservice:
+    image: todoservice
+    build: ToDoService/
+    network_mode: host
+    ports:
+      - 8082:8082
+    depends_on:
+      - mongoservice
+      - eurekaserver
+      - apigateway
+
+  trashservice:
+    image: trashservice
+    build: TrashService/
+    network_mode: host
+    ports:
+      - 8086:8086
+    depends_on:
+      - mongoservice
+      - eurekaserver
+      - apigateway
+
+  emailservice:
+    image: emailservice
+    build: EmailService/
+    restart: always
+    network_mode: host
+    ports:
+      - 8087:8087
+    depends_on:
+      - eurekaserver
+      - apigateway
+
+  adminservice:
+    image: adminservice
+    build: AdminService/
+    network_mode: host
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongoservice
+      - eurekaserver
+      - apigateway

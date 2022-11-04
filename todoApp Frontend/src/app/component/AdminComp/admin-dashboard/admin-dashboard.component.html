@@ -1,0 +1,38 @@
+<div style="height: 89%;">
+  <mat-toolbar class="toolcolor" id="toolcolor">
+
+    <img src="https://www.shareicon.net/data/2016/09/13/828455_logo_512x512.png" height="60px"
+      style="margin-top: 1%;margin-left: 40%;">
+    <span style="font-size:x-large ;margin-top: 1%;">ToDo Tracker</span>
+
+
+    <button mat-icon-button style="margin-left: 45%;margin-top:1%;" title="Account" [matMenuTriggerFor]="account">
+      <mat-icon style="transform: scale(1.5);">account_circle</mat-icon>
+    </button>
+  </mat-toolbar><br>
+
+  <mat-menu #account="matMenu">
+    <button mat-menu-item>Welcome Admin</button>
+    
+  
+    <button mat-menu-item (click)="logoutAdmin()">
+      <mat-icon>account_box</mat-icon>
+      <span>Log Out</span>
+    </button>
+  </mat-menu>
+
+
+
+  <mat-sidenav-container class="example-container" id="example-container">
+<h1 style="font-family:cursive;margin-left:43%;margin-top: 5%;font-size: xx-large;font-weight: bolder;" >Admin Panel</h1>
+
+    
+      <div style="margin-top:15% ;">
+      <button  mat-raised-button color="accent"  (click)="openDailog()" style="transform: scale(2);margin-left:33%;margin-right: 10%;border-radius: 10px 100px/120px;" >Add Common Message</button>
+      <button mat-raised-button color="accent" routerLink="admin-dashboard/deleteadmin" (click)="DisplayMessage()" style="transform: scale(2);margin-left: 1%;border-radius: 10px 100px/120px;">Delete Message</button>
+    </div>
+
+    
+  </mat-sidenav-container>
+
+</div>

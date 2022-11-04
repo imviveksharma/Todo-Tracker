@@ -1,0 +1,34 @@
+
+  
+  <div class="container" *ngIf="productList.length!=0">
+    <ng-container *ngFor="let item of filterCategory | filter:searchKey:'taskTitle'">
+         <div class="card">
+        <div class="box">
+          <div class="content">
+            <h2>{{item.category}}</h2>
+            <h3>{{item.taskTitle}}</h3>
+            <p>{{item.description}}</p>
+            <p>{{item.priority}}</p>
+            <p>{{item.date}}</p>
+            
+            <button mat-icon-button class="dwtn" title="Delete" (click)="deletetaskFromTrash(email,item.taskId)"><mat-icon>delete</mat-icon></button>
+            <button  mat-icon-button class="dwtn" title="Recover" (click)="RecoverDeletedTask(item);deletetaskFromTrash(email,item.taskId)"><mat-icon>unarchive</mat-icon></button>
+          </div>
+      
+        </div>
+      </div>
+    </ng-container>
+    
+    </div>
+  
+    
+  
+  
+      <div class="zeronotes" *ngIf="productList.length==0">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/OOjs_UI_icon_trash.svg/1200px-OOjs_UI_icon_trash.svg.png"
+        class="imagecs">
+        <div class="imagefont">No Notes in Trash</div>
+      </div>
+  
+  
+  

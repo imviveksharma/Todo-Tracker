@@ -1,0 +1,106 @@
+<app-header></app-header>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<body style="background-image: url('');">
+  <img src="https://doi-ds.org/images/upload/contact_us.jpg" style="height: 20%;padding-left: 600px;margin-top: 2%;">
+<div class="contact3 py-5">
+    <div class="row no-gutters">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card-shadow" style="margin-left:3%">
+              <img src="https://www.originenergy.com.au/wp-content/uploads/lady-laptop-tall-1536x864.jpg" class="img-fluid">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="contact-box ml-3">
+              <form class="mt-1"  [formGroup]="ContactUsForm" (ngSubmit)="SendMessageToUser()">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group mt-0">
+                      <input class="form-control" type="text" placeholder="Name" formControlName="name">
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group mt-2">
+                      <input class="form-control" type="email" placeholder="Email Address" formControlName="email">
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group mt-2">
+                      <input class="form-control" type="text" placeholder="Phone" formControlName="text">
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group mt-2">
+                      <textarea class="form-control" rows="3" placeholder="Message" formControlName="message"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-lg-12"><br>
+                    <button class="btn btn-success" type="submit"><span> SUBMIT</span></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="card mt-4 border-0 mb-4">
+              <div class="row">
+                <div class="col-lg-4 col-md-4">
+                  <div class="card-body d-flex align-items-center c-detail pl-0">
+                    <div class="mr-3 align-self-center">
+                      <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon1.png">
+                    </div>
+                    <div class="">
+                      <h3 class="font-weight-medium"style="font-weight: bolder;">Address</h3>
+                      <p class=""style="font-weight: bolder;">Noida,Uttar Pradesh
+                        <br> India</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                  <div class="card-body d-flex align-items-center c-detail">
+                    <div class="mr-3 align-self-center">
+                      <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon2.png">
+                    </div>
+                    <div class="">
+                      <h3 class="font-weight-medium" style="font-weight: bolder;">Phone</h3>
+                      <p class=""style="font-weight: bolder;">+91 9555 758 416
+                        <br>+91 7755 874 260 </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                  <div class="card-body d-flex align-items-center c-detail">
+                    <div class="mr-3 align-self-center">
+                      <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon3.png">
+                    </div>
+                    <div class="">
+                      <h3 class="font-weight-medium"style="font-weight: bolder;">Email</h3>
+                      <p class=""style="font-weight: bolder;">
+                        officialtodotracker@gmail.com
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<div class="footer-basic">
+  <footer>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Home</a></li>
+          <li class="list-inline-item"><a href="features">Features</a></li>
+          <li class="list-inline-item"><a href="pricing">Pricing</a></li>
+          <li class="list-inline-item"><a href="contact">Contact Us</a></li>
+      </ul>
+      <p class="copyright">To-Do Tracker © 2022</p>
+  </footer>
+</div>

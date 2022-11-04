@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="bg-img" >
+    <div class="content">
+        <header>Login Form</header><br>
+        <img class="img-fluid" style="width: 100px;" src="https://cdn-icons-png.flaticon.com/512/295/295128.png">
+       <br><br>
+    <form  class="flex-container" [formGroup]="loginFormGroup" (ngSubmit)="loginCheck()">
+            <div class="field">
+                <input type="email" formControlName="email" placeholder="                   Enter Email">
+            </div>
+            <span style="color: red;font-size:larger;" *ngIf="email && email.invalid && email.touched">Please enter a valid email</span>
+            <div class="field space">
+                <input type="password" formControlName="password" placeholder= "                 Enter Your Password">
+            </div>
+            <span style="color: red;font-size: larger;" *ngIf="password && password.invalid && password.touched">Password Required of min 3 char</span>
+            
+            <div class="pass"(click)="forgot()">
+                <a>Forgot Password?</a>
+            </div><br>
+            <div class="field">
+                <input [disabled]="loginFormGroup.invalid" type="submit" value="LOGIN">
+            </div>
+            <!-- <div class="login">Or login with</div> -->
+            <!-- <div class="link">
+                <div class="facebook">
+                    <i class="fa fa-facebook-f"><span>Facebook</span></i>
+                </div>
+                <div class="instagram">
+                    <i class="fa fa-instagram"><span>Instagram</span></i>
+                </div>
+            </div> --><br>
+            <div class="signup">Don't have account?
+                <a href="register">SignUp Now</a>
+            </div>
+        </form>
+    </div>
+
+</div>

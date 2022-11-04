@@ -1,0 +1,102 @@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+
+
+<div style="height: 89%;"  class="imageheader">
+  <mat-toolbar  class="toolcolor" id="toolcolor" class="imageheader">
+    <button mat-icon-button class="example-icon" style="margin-top: 1%;" (click)="isExpanded = !isExpanded">
+        <mat-icon style="transform: scale(1.5);" style="color:white;">menu</mat-icon>
+      </button>
+      <img src="..//../assets/logo.jpg" height="60px" style="margin-top: 1%;">
+      <span style="font-size:x-large ;margin-top: 1%;color:white;">ToDo Tracker</span>
+      <!-- <mat-form-field class="example-form-field" appearance="outline" style="margin-top: 2.5%;margin-left: 10%;background-color:white ;border-radius: 50px;">
+       
+        <button matPrefix mat-icon-button aria-label="Clear" ><mat-icon >search</mat-icon></button>
+        <input matInput type="text"  placeholder="Search"  [(ngModel)]="searchTerm" (keyup)="search($event)">
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''" style="color:red ;">
+       
+          <mat-icon>close</mat-icon>
+          
+        </button> 
+      </mat-form-field> -->
+
+      <div class="container" style="margin-top:15px ;margin-left: -255px;">
+
+      <div class="row height d-flex justify-content-center align-items-center">
+
+        <div class="col-md-6">
+
+          <div class="form">
+            <i class="fa fa-search"><mat-icon >search</mat-icon></i>
+            <input type="text" class="form-control form-input" placeholder="Search anything..."  [(ngModel)]="searchTerm" (keyup)="search($event)">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+       
+              <mat-icon>close</mat-icon>
+              
+            </button> 
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+     <button mat-icon-button style="margin-left: 70px;margin-top:1%;"  title="Refresh" ><mat-icon style="transform: scale(1.5);color:white;" (click)="refresh()">refresh</mat-icon></button> 
+     <button mat-icon-button style="margin-left: 1.5%;margin-top:1%;color:white;" title="Notifications" [matMenuTriggerFor]="notification"><mat-icon style="transform: scale(1.5);" matBadge="{{taskList.length}}" matBadgeColor="warn">notifications</mat-icon></button>
+     
+     <button mat-icon-button style="margin-left: 10%;margin-top:1%;color:white;" title="Apps" [matMenuTriggerFor]="apps"><mat-icon style="transform: scale(1.5);">apps</mat-icon></button> 
+     
+     <button mat-icon-button style="margin-left: 1.5%;margin-top:1%;color:white;" title="Account" [matMenuTriggerFor]="account"><mat-icon style="transform: scale(1.5);">account_circle</mat-icon></button>  
+    </mat-toolbar><br>
+    
+    <mat-menu #account="matMenu">
+      <button mat-menu-item >Welcome {{name}}</button>
+      <button mat-menu-item (click)="logoutUser();resetStorage()">
+        <mat-icon>account_box</mat-icon>
+        <span>Log Out</span>
+      </button>
+    </mat-menu>
+<mat-menu #apps="matMenu" xPosition="before">
+  <button mat-menu-item onclick="window.location.href='https://www.google.co.in/';"><img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" height="28px" width="28px">&nbsp;&nbsp;Google</button>
+  <button mat-menu-item onclick="window.location.href='https://www.youtube.com/';"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" height="28px" width="28px">&nbsp;&nbsp;Youtube</button>
+  <button mat-menu-item onclick="window.location.href='https://www.facebook.com/';"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" height="28px" width="28px">&nbsp;&nbsp;Facebook</button>
+  <button mat-menu-item onclick="window.location.href='https://www.instagram.com/';"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" height="28px" width="28px">&nbsp;&nbsp;Instagram</button>
+  <button mat-menu-item onclick="window.location.href='https://twitter.com/login';"><img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" height="28px" width="28px">&nbsp;&nbsp;Twitter</button>
+  <button mat-menu-item onclick="window.location.href='https://mail.google.com/mail/';"><img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" height="28px" width="28px">&nbsp;&nbsp;Gmail</button>
+</mat-menu>
+    <mat-menu #notification="matMenu" ><br>
+      <ng-container *ngFor="let item of taskList ">
+       <h2 style="margin-left: 10px;">{{item.taskTitle}}&nbsp;&nbsp;&nbsp;</h2><hr>
+      </ng-container>
+    </mat-menu>
+
+<mat-sidenav-container class="example-container" id="example-container">
+  
+	<mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+		<mat-nav-list><br>
+			<mat-list-item routerLink="notes">
+				<span class="full-width" *ngIf="isExpanded || isShowing">Notes</span>
+				<mat-icon mat-list-icon style="transform: scale(1.8);" >lightbulb</mat-icon>
+			</mat-list-item><br><br>
+      <mat-list-item routerLink="archive">
+				<span class="full-width" *ngIf="isExpanded || isShowing">Archive</span>
+				<mat-icon mat-list-icon style="transform: scale(1.8);" >archive</mat-icon>
+			</mat-list-item><br><br>
+      <mat-list-item routerLink="trash">
+				<span class="full-width" *ngIf="isExpanded || isShowing">Trash</span>
+				<mat-icon mat-list-icon style="transform: scale(1.8);" >delete_outline</mat-icon>
+			</mat-list-item>
+		</mat-nav-list>
+    <mat-nav-list>
+</mat-nav-list>
+	</mat-sidenav>
+  
+	<div class="example-sidenav-content" >
+    
+<router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
+</div>
+

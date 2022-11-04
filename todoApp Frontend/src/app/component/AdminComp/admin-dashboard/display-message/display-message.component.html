@@ -1,0 +1,29 @@
+<body style="background-color:lightcyan;">
+    
+<div class="container">
+    <div class="card-table">
+        <div class="cart-product">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Meesage Id</th>
+                        <th>Message</th>
+                       <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of products; let i = index">
+                       
+                        <td>{{item.taskId}}</td>
+                        <td style="width: 25%;">{{item.taskTitle}}</td>
+                       
+                        <td>
+                            <button (click)="removeItem(item.taskId)" class="btn btn-danger"> Delete<i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div></body>

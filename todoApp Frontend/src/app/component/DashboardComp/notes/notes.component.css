@@ -1,0 +1,169 @@
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: white;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1700px;
+  flex-wrap:wrap;
+  padding: 100px 0;
+
+  
+}
+
+.container .card{
+  position:relative;
+  min-width: 320px;
+  height: 350px;
+  box-shadow: inset 5px 5px 5px rgba(0,0,0,0.05),
+  inset -5px -5px -5px rgba(255,255,255,0.5),
+  5px 5px 5px rgba(0,0,0,0.05),
+  -5px -5px -5px rgba(255,255,255,0.5);
+border-radius: 15px;
+margin: 30px;
+}
+
+.container .card .box{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: #ebf5fc;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.container .card:hover .box{
+  transform: translateY(-50px);
+  box-shadow:0 10px 40px rgba(0,0,0,0.2);
+  background: linear-gradient(45deg,#b95ce4,#4f29cd);
+}
+.container .card .box .content{
+  padding: 20px;
+  text-align: center;
+}
+
+
+
+.container .card .box .content h3{
+  font-size: 1.8em;
+  color: #777;
+  z-index: 1;
+  transition: 0.5s;
+
+}
+.container .card .box .content p{
+  font-size: 1em;
+  font-weight:300;
+  color: #777;
+  z-index:1;
+  transition:0.5s;
+}
+.container .card:hover .box .content h3,
+.container .card:hover .box .content p
+{
+color:#fff
+}
+.container .card .box .content a{
+  position: relative;
+  display: inline-block;
+  padding: 8px 20px;
+  background: #03a9f4;
+  /* background: orange; */
+  margin-top: 15px;
+  border-radius: 20px;
+  color:#fff;
+  text-decoration: none;
+  font-weight: 400;
+  box-shadow:0 10px 20px rgba(0,0,0,0.2)
+}
+
+.container .card:hover .box .content a{
+  background: #ff568f;
+}
+.imagecs{
+  background-size: 120px 120px;
+    height: 250px;
+    margin: 35px;
+    opacity: .1;
+    width: 250px;
+}
+
+.imagefont{
+  color: #80868b;
+    cursor: default;
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-size: 1.9rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.75rem;
+}
+.zeronotes{
+  margin-top: 45%;
+}
+.container .card .box .content .dwtn{
+  opacity: 0;
+
+
+}
+.container .card:hover .box .content .dwtn{
+  opacity:100;
+}
+
+.card p{
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  letter-spacing: .25px;
+  font-weight: 500;
+  font-size: 1.15em;
+  -webkit-line-clamp: 2;
+}
+.buttondesign{
+margin-left: 10px;
+border-radius: 10px 100px/120px;
+height: 50px;
+width: 150px;
+}
+
+.mat-form-field {
+margin-right: 12px;
+}
+
+.yellow{
+background-color: yellow;
+}
+.box1 {
+  position: relative;
+  margin-left: 60px;
+}
+.box1:before{
+  position: absolute;
+  left: -20px;
+  content: "";
+  height:20px;
+  width:20px;
+  margin-bottom:15px;
+  border:1px solid black;
+}
+.box1.red:before{
+  background-color:rgb(14, 126, 224);
+}
+.box1.pink:before{
+  background-color:purple;
+}
+.box1.yellow:before{
+  background-color:rgb(203,142,0);
+}

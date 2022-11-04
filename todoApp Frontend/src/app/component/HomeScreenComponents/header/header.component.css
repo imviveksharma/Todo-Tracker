@@ -1,0 +1,31 @@
+.navbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  z-index: 1000;
+  align-items: flex-end;
+  width: 100%;
+}
+.navbar a {
+  padding: 0.5rem;
+  font-size: 20px;
+  background: black;
+  flex: 1;
+  color: #fff !important;
+  text-align: center;
+  transition: .2s linear !important;
+  text-decoration: none;
+}
+.navbar a:hover {
+  background: crimson;
+  padding-top: 1rem;
+}
+.navbar a:hover i {
+  color: #fff ;
+}
+.navbar h2 {
+  padding: 1rem;
+  background: black;
+  flex: 3;
+}

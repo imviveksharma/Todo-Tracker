@@ -1,0 +1,15 @@
+
+      <h1 style="color: red;text-align: center;font-family: cursive;">Add A Message</h1>
+      <form  [formGroup]="AddMessage" (ngSubmit)="Message()" style="margin-left:28px;">
+            <mat-form-field appearance="outline" style="width: 350px;">
+              <mat-label>Task Title</mat-label>
+              <input matInput  id="taskTitle" formControlName="taskTitle" >
+            </mat-form-field><br>
+      
+           
+           
+      <br>
+            <button type="submit" class="btn btn-primary" style="margin-left: 30%;">Add A Message</button>
+      
+      </form>
+      

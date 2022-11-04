@@ -1,0 +1,22 @@
+<body style="background-image: url('https://media.cntraveler.com/photos/5cb63a0bc131b962ade953ad/master/w_4000,h_2670,c_limit/Banff-Canada_GettyImages-680900749.jpg');">
+<br><br><br><br><br><br><br><br><br>
+<img src="https://www.shareicon.net/data/2016/09/13/828455_logo_512x512.png" style="float:left;margin-left:25%;margin-top: -5%;">
+    <div class="form">
+        <h1 style="font-weight:bolder;">Admin Panel</h1><br>
+        <form [formGroup]="logForm">
+        <mat-form-field appearance="outline" style="width: 50%;">
+            <mat-label>LOGIN ID</mat-label>
+            <input matInput placeholder="Enter Your Email Id" formControlName="email" style="color: white;">
+        </mat-form-field><br><br>
+        <mat-form-field appearance="outline" style="width: 50%;">
+            <mat-label>PASSWORD</mat-label>
+            <input  matInput placeholder="Enter Your Password" formControlName="password" style="color: white;" [type]="hide ? 'password' : 'text'">
+            <button  style="color: white;" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+        </mat-form-field></form><br>
+        <br>
+        <button mat-raised-button color="warn" (click)="checkData()">Login</button>
+        <button mat-raised-button color="warn" routerLink="" style="margin-left: 15%;">Home</button>
+    </div>
+</body>

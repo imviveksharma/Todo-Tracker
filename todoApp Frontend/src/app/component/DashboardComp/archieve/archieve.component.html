@@ -1,0 +1,35 @@
+
+ 
+  
+  <div class="container" *ngIf="productList.length!=0" >
+    <ng-container *ngFor="let item of filterCategory | filter:searchKey:'taskTitle'">
+         <div class="card">
+        <div class="box">
+          <div class="content">
+            <h2>{{item.category}}</h2>
+            <h3>{{item.taskTitle}}</h3>
+            <p>{{item.description}}</p>
+            <p>{{item.priority}}</p>
+            <p>{{item.date}}</p>
+            
+            
+            <button mat-icon-button class="dwtn" (click)="deletetaskFromArchive(item.taskId)" ><mat-icon>delete</mat-icon>Delete</button>
+          </div>
+      
+        </div>
+      </div>
+    </ng-container>
+    
+    </div>
+  
+  
+  
+  
+      <div class="zeronotes" *ngIf="productList.length==0">
+        <img src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_archive_48px-512.png"
+        class="imagecs">
+        <div class="imagefont">No Notes in Archive</div>
+      </div>
+  
+  <!-- <button mat-fab style="position: fixed;bottom:5%;left:92%;transform: scale(1.25);" ><mat-icon style="transform: scale(1.5);">note_add</mat-icon></button> -->
+  
